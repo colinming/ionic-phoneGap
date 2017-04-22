@@ -13,26 +13,118 @@ a{
 }
 
 
-/* 头部 */
+/* 首页 */
+.home_list a{
+    display: block;
+}
 
+/* 文章详情 */
+.article_list{
 
-/* 尾部 */
-.nav-tab.tabs{
-    position: fixed;
-    bottom:0;
-    left:0;
+}
+.article_list .article-title{
+    font-size:20px;
+}
+.article_list .article_sumary{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+}
+.article_list .article_content{
+
+}
+.article_content p a{
+    display: block;
+}
+.article_content p img{
+    width:100%;
+}
+.article_content .newsMainBox{
+
+}
+.article_content .newsMainBox p img{
+    width:100%;
+}
+.article_content .duanluo{
+
+}
+.article_content .pic-video{
+
+}
+.article_content .pic-video article{
+    display: block;
+}
+.article_content .pic-video article img{
+    width:100%;
+}
+
+/* 帖子分类 */
+.item.topic_title{
+    border:0;
+    padding-left:0;
+    font-size:20px;
+    font-weight:700;
+}
+.tie_item{
+    display: block;
+}
+
+/* 帖子列表 */
+.topic_list{
+    display: block;
+}
+.topic_list h2{
+    font-size:20px;
+    font-weight:700;
+}
+.topic_list span{
+    display: block;
+    margin:10px 0 10px 0;
+    font-size:14px;
+}
+.topic_list p{
+    font-size:16px;
+}
+
+/* 帖子详情页 */
+.topic_detail_title{
+    font-size:22px;
+    font-weight:700;
+    padding:10px 0 10px 16px;
+}
+.topic_detail_content{
+
+}
+.topic_detail_content h4{
+    font-size:20px;
+    padding-bottom:10px;
+}
+.topic_detail_content p{
+    font-size:16px;
+    white-space: normal;
+    line-height: 1.5;
+}
+.topic_detail_content .topic_content{
+
+}
+.topic_detail_content .topic_content img{
+    width:100%;
+}
+.topic_detail_content p.topic_dateline{
+    font-size:14px;
+    color:#000;
+    padding-top:10px;
 }
 
 
-
-
-/* 用户中心样式开始 */
-.content{
+/* 用户中心样式 */
+.user_content{
     background-color:#f5f5f5;
 }
 
-
-.pic{
+.user_center{
     text-align: center;
     padding-top: 17px;
     padding-bottom: 20px;
@@ -40,51 +132,70 @@ a{
     border-bottom: 1px solid #dddddd;
 }
 
-.pic-a{
+.user_center .user{
     display:block;
     width: 50px;
     height: 50px;
     margin: 0 auto 25px;
 }
 
-.pic-a img{
+.user_center .user img{
     width:100%;
     height:100%;  
 }
 
-span{
+.user_list span{
     color: #444444;
 }
 
-.list a{
+.user_list a{
     padding-top: 30px;
     padding-bottom: 30px; 
 }
 
-.linka a{
+.sign_link a{
     color:#666666;
+    display: inline-block;
+    width:80px;
+    height:40px;
+    line-height:40px;
+    text-align:center;
 }
 
-.linka a:last-child{
+.sign_link a:last-child{
     margin-left: 25px;
 }
 
-.list1{
+.user_list_first{
     margin-top: 20px;
 }
 
-.health{
+.user_list .health{
     color:#387ef5;
 }
 
-.collect{
+.user_list .collect{
     color:#33cd5f;
 }
 
-.service{
+.user_list .service{
     color:#ffc900;
 }
 
-.help{
+.user_list .help{
     color:#387ef5;
+}
+
+/*登录页面*/
+.item.item-input{
+    padding:5px 16px;
+
+}
+.item.item-input span{
+    display: block;
+    font-size:18px;
+}
+.item.item-input input{
+    font-size:16px;
+    padding:3px 0px;
 }

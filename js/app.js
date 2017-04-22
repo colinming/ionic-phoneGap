@@ -32,14 +32,12 @@ angular.module('starter', ['ionic','Controller'])
     //定义路由
     $stateProvider
 
-    //定义选项卡路由
     .state('tab',{
         url: '/tab',
         abstract: true,
         templateUrl: 'template/tab.html'
     })
 
-    //首页路由
     .state('tab.home',{
         url: '/home',
         views: {
@@ -50,7 +48,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //文章列表页路由
     .state('tab.list', {
         url: '/list/:num',
         views: {
@@ -61,7 +58,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //文章详情页路由
     .state('tab.article', {
         url: '/article/:aid',
         views: {
@@ -72,7 +68,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //帖子分类
     .state('tab.tie', {
         url: '/tie',
         views: {
@@ -83,8 +78,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-
-    //帖子列表
     .state('tab.tieList',{
         url: '/tielist/:id',
         views: {
@@ -95,7 +88,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //帖子详情页面
     .state('tab.tieDetail', {
         url: '/tiedetail/:tid',
         views: {
@@ -106,7 +98,6 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //定义用户中心页面路由
     .state('tab.user',{
         url:'/user',
         views:{
@@ -117,11 +108,9 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //定义登录页面路由
     .state('tab.signIn',{
         url:'/signIn',
         views:{
-            //与用户中心的tab-user一致，否则无法跳转
             'tab-user':{
                 templateUrl:'template/signIn.html',
                 controller:'signInCtrl'
@@ -129,11 +118,9 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //定义注册路由
     .state('tab.signUp',{
         url:'/signUp',
         views:{
-            //与用户中心tab-user一致，否则无法跳转
             'tab-user':{
                 templateUrl:'template/signUp.html',
                 controller:'signUpCtrl'
@@ -141,11 +128,5 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //定义默认的路由
     $urlRouterProvider.otherwise('/tab/home')
 }]) 
-
-//返回首页
-// $scope.tiao = function(){
-//     $state.go('tab.home')
-// }

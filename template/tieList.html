@@ -1,11 +1,12 @@
+<!-- 帖子列表页 -->
 <ion-view title="帖子列表">
 	<ion-content>
 		<ion-list>
 			<ion-item ng-repeat="item in items">
-				<a href="#/tab/tiedetail/{{item.tid}}">
+				<a class="topic_list" href="#/tab/tiedetail/{{item.tid}}">
 					<h2>{{ item.subject }}</h2>
 					<span>用户：{{ item.author }}</span>
-					<p>最后一次提交时间：{{item.lastpost*1000 | date: "yyyy-MM-dd"}}</p>
+					<p>最后一次提交时间：{{item.lastpost*1000 | date: "yyyy - MM - dd"}}</p>
 				</a>
 			</ion-item>
 		</ion-list>

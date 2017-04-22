@@ -1,8 +1,7 @@
 <ion-view title="首页">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="item in items">
-                            
+            <ion-item ng-repeat="item in items" class="home_list">              
                 <a href="#/tab/list/{{ item.catid}}">{{ item.catname }}</a>
             </ion-item>
         </ion-list>

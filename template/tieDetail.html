@@ -1,11 +1,13 @@
+<!-- 帖子详情页 -->
 <ion-view title="帖子详情">
 	<ion-content>
-		<h2>{{ items[0].subject}}</h2>
+		<h2 class="topic_detail_title">{{ items[0].subject}}</h2>
 		<ion-list>
 			<ion-item ng-repeat="item in items">
-				<div>
-					<h2>{{ item.author }}</h2>
-					<p>{{ item.message }}</p>
+				<div class="topic_detail_content">
+					<h4>Author: {{ item.author }}</h4>
+					<p class="topic_content" ng-bind-html="item.message"></p>
+					<p class="topic_dateline">最后一次提交时间：{{ item.dateline*1000 | date:"yyyy - MM - dd" }}</p>
 				</div>
 			</ion-item>
 		</ion-list>
