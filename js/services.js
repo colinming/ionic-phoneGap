@@ -1,11 +1,14 @@
-angular.module('Service', [])
+/*
+	用于
+*/ 
 
+angular.module('Service', [])
 
 .service('Qing', ['$http','$rootScope', function($http,$rootScope){
 	var ifData = true;
 	return {
 
-		//获取文章分类
+		//获取首页内容
 		//http://www.phonegap100.com/appapi.php?a=getPortalCate 
 		//jsonp请求需要传callback参数
 		"classify": function(){
@@ -18,9 +21,9 @@ angular.module('Service', [])
 			.then(function(data){
 				//使用广播来传数据
 				$rootScope.$broadcast('classify', data.data.result)
-				
+				//console.log(data);
 			},function(error){
-				console.log(error)
+				alert(error);
 			})
 		},
 
@@ -79,6 +82,7 @@ angular.module('Service', [])
 			})
 			.then(function(data){
 				// console.log(data.data.result[0]);
+				
 				$rootScope.$broadcast('detail', data.data.result[0])
 			},function(error){
 				alert('请求失败！')
@@ -102,7 +106,7 @@ angular.module('Service', [])
 			})
 
 			.then(function(data){
-				console.log(data.data.result);
+				//console.log(data.data.result);
 				$rootScope.$broadcast('tie', data.data.result)
 			},function(error){
 				alert('请求失败')
@@ -123,7 +127,7 @@ angular.module('Service', [])
 				}
 			})
 			.then(function(data){
-				console.log(data.data.result);
+				//console.log(data.data.result);
 				$rootScope.$broadcast('tieLists', data.data.result);
 			},function(error){
 				alert('请求错误')
@@ -144,11 +148,48 @@ angular.module('Service', [])
 			})
 
 			.then(function(data){
-				console.log(data.data.result);
+				//console.log(data.data.result);
 				$rootScope.$broadcast('tiedetail', data.data.result)
 			}, function(error){
 				alert('请求错误')
 			})
 		}
 	}
+}])
+
+//用户中心服务器
+.service('userReq',['$http','$rootScope','$ionicLoading','$timeout',function($http,$rootScope,$ionicLoading,$timeout){
+
+	return {
+		'signIn':function(){
+			$http
+				.jsonp('http://www.phonegap100.com/appapi.php',{
+					params:{
+						"callback":"JSON_CALLBACK",
+						"a":"signIn",
+						"username":"user.username",
+						"password":"user.password"
+					}
+				})
+				.then(function(data){
+					//console.log(data);
+					
+					$ionicLoading.show({
+						template:data.data.message
+					});
+
+					$timeout(function(){
+						$ionicLoading.hide();
+					},1000)
+
+				},function(err){
+					alert(err);
+				})
+		},
+		'signUp':function(){
+
+		}
+	}
+
+
 }])

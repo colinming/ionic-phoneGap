@@ -1,10 +1,14 @@
+/*
+	用于进行数据交互和页面逻辑处理,http请求等
+*/ 
+
 angular.module('Controller', ['Service'])
 
-//第一个选项卡下的控制器
+//主页控制器
 .controller('homeCtrl', ['$scope','Qing',function($scope,Qing){
 
 	//需要获取文章分类
-	// 来调用获取文章分类的函数
+	//来调用获取文章分类的函数
 	Qing.classify();
 
 	//来接受广播传过来的数据
@@ -15,8 +19,8 @@ angular.module('Controller', ['Service'])
 }])
 
 
-//文章列表的控制器
-//$stateParams
+//文章列表页控制器
+//$stateParams获取分页信息
 .controller('listCtrl', ['$scope','$stateParams','Qing', function($scope,$stateParams,Qing){
 	//就要来知道，到底获取的是哪一个分类？
 
@@ -30,8 +34,7 @@ angular.module('Controller', ['Service'])
 	Qing.list($stateParams.num,i);
 
 	$scope.$on('list', function(event,data){
-		//[]
-
+		
 		$scope.items = $scope.items.concat(data);
 		$scope.$broadcast('scroll.infiniteScrollComplete');
 	})
@@ -53,7 +56,7 @@ angular.module('Controller', ['Service'])
 }])
 
 
-//文章详情的控制器
+//文章详情页控制器
 .controller('articleCtrl', ['$scope','article','$stateParams',function($scope,article,$stateParams){
 
 	//来调用获取文章详情的函数
@@ -69,7 +72,7 @@ angular.module('Controller', ['Service'])
 }])
 
 
-//帖子分类控制器
+//帖子分类页控制器
 .controller('tieCtrl', ['$scope','tie', function($scope,tie){
 
 	//调用获取帖子分类的函数
@@ -81,7 +84,7 @@ angular.module('Controller', ['Service'])
 	
 }])
 
-//帖子列表
+//帖子列表页控制器
 .controller('tieListCtrl', ['$scope','$stateParams','tie', function($scope,$stateParams,tie){
 
 	//获取传过来的帖子分类的fid
@@ -97,7 +100,7 @@ angular.module('Controller', ['Service'])
 	
 }])
 
-//帖子详情控制器
+//帖子详情页控制器
 .controller('tieDetailCtrl', ['$scope','tie','$stateParams', function($scope,tie,$stateParams){
 
 	//调用获取帖子详情的函数	
@@ -107,3 +110,30 @@ angular.module('Controller', ['Service'])
 		$scope.items = data;
 	})
 }])
+
+//用户中心控制器
+.controller('userCtrl',['$scope','userReq',function($scope,userReq){
+
+}])
+
+//用户登录控制器
+.controller('signInCtrl',['$scope','userReq',function($scope,userReq){
+
+	$scope.user = {};
+
+	$scope.submit = function(){
+		userReq.signIn($scope.user);
+	}
+
+}])
+
+//用户注册控制器
+.controller('signUpCtrl',['$scope','userReq',function($scope,userReq){
+	
+}])
+
+function contentController($scope,$ionicSideMenuDelegate){
+	$scope.toggleLeft = function(){
+		$ionicSideMenuDelegate.toggleLeft();
+	};
+}

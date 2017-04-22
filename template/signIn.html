@@ -1,0 +1,26 @@
+<ion-view title="登录">
+    <ion-content>
+        <div class="list">
+            <!--表单提交name -->
+            <form name="login">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">用户名</span>
+                    <!-- input绑定ng-model required -->
+                    <input type="text" name="username" placeholder="输入用户名" ng-model="user.username" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">密码</span>
+                    <input type="password" name="password" placeholder="密码" ng-model="user.password" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+
+                    <!-- button绑定ng-disabled提交错误 -->
+                    <button class="button button-block button-positive" ng-disabled="login.$invalid" ng-click="submit()">
+                        登录
+                    </button>
+                </label>
+            </form>
+                
+        </div>
+    </ion-content>
+</ion-view>

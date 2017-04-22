@@ -1,4 +1,6 @@
-
+/*
+    用户定义页面路由
+*/
 angular.module('starter', ['ionic','Controller'])
 
 .run(function($ionicPlatform) {
@@ -37,7 +39,7 @@ angular.module('starter', ['ionic','Controller'])
         templateUrl: 'template/tab.html'
     })
 
-    //为第一个选项卡定义一个页面
+    //首页路由
     .state('tab.home',{
         url: '/home',
         views: {
@@ -48,7 +50,7 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //文章列表的页面
+    //文章列表页路由
     .state('tab.list', {
         url: '/list/:num',
         views: {
@@ -59,7 +61,7 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
-    //文章详情的页面
+    //文章详情页路由
     .state('tab.article', {
         url: '/article/:aid',
         views: {
@@ -104,12 +106,46 @@ angular.module('starter', ['ionic','Controller'])
         }
     })
 
+    //定义用户中心页面路由
+    .state('tab.user',{
+        url:'/user',
+        views:{
+            'tab-user':{
+                templateUrl:'template/user.html',
+                controller:'userCtrl'
+            } 
+        }
+    })
+
+    //定义登录页面路由
+    .state('tab.signIn',{
+        url:'/signIn',
+        views:{
+            //与用户中心的tab-user一致，否则无法跳转
+            'tab-user':{
+                templateUrl:'template/signIn.html',
+                controller:'signInCtrl'
+            }
+        }
+    })
+
+    //定义注册路由
+    .state('tab.signUp',{
+        url:'/signUp',
+        views:{
+            //与用户中心tab-user一致，否则无法跳转
+            'tab-user':{
+                templateUrl:'template/signUp.html',
+                controller:'signUpCtrl'
+            }
+        }
+    })
 
     //定义默认的路由
     $urlRouterProvider.otherwise('/tab/home')
 }]) 
 
-
+//返回首页
 // $scope.tiao = function(){
 //     $state.go('tab.home')
 // }
